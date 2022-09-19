@@ -15,6 +15,10 @@ class CreatePostTable extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->id();
+            $table->string('author', 255);
+            $table->string('title', 255);
+            $table->text('post_content');
+            $table->dateTime('post_date');
             $table->timestamps();
         });
     }
