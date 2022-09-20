@@ -57,6 +57,7 @@ class PostController extends Controller
         $post->title = $sentData['title'];
         $post->post_image = $sentData['post_image'];
         $post->post_content = $sentData['post_content'];
+        $post->post_date = $sentData['post_date'];
         $post->save();
 
         return redirect()->route('admin.posts.show',compact('post'));

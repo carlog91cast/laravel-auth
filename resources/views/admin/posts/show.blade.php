@@ -10,6 +10,8 @@
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <h6 lass="card-title">{{ $post->author }}</h6>
                 <p class="card-text">{{ $post->post_content }}</p>
+                <p class="card-text">{{ $post->post_date }}</p>
+
             </div>
         </div>
     </div>
