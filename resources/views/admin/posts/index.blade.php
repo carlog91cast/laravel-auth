@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        @if (session('delete'))
+            <div class="alert alert-success">
+                {{ session('delete') }} è stato cancellato per sempre dall'orbe terracqueo
+            </div>
+        @endif
         <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>
@@ -20,14 +25,16 @@
                         <td>{{ $post->post_date }}</td>
                         <td><button class="btn btn-primary"><a class="text-decoration-none text-white"
                                     href="{{ route('admin.posts.edit', $post->id) }}">Edit</a></button></td>
-                        {{-- <td>
-                        <form class="form-delete" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><a class="text-decoration-none text-white"
-                                    href="">Delete</a></button>
-                        </form>
-                    </td> --}}
+                        <td><button class="btn btn-secondary"><a class="text-decoration-none text-white"
+                                    href="{{ route('admin.posts.create', $post->id) }}">Create</a></button></td>
+                        <td>
+                            <form class="form-delete" action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><a class="text-decoration-none text-white"
+                                        href="">Delete</a></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
